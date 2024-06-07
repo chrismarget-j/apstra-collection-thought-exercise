@@ -1,0 +1,31 @@
+{
+  "instantiation_schema": {
+    "LD_Name": {
+      "type": "string",
+      "default": "AOS-3x100_116x25",
+      "required": true
+    }
+  },
+  "items": [
+    {
+      "name": "LD",
+      "api": "/api/design/logical-devices",
+      "method": "POST",
+      "payload": {
+        "label": "AOS-3x100_116x25",
+        "panels": [ <trimmed for brevity> ]
+      }
+    },
+    {
+      "name": "IM",
+      "api": "/api/design/interface-maps",
+      "method": "POST",
+      "payload": {
+        "label": "Juniper_QFX5120-32C__{{ .LD.label }}",
+        "device_profile_id": "Juniper_QFX5120-32C",
+        "logical_device_id": "{{ .LD.id }}",
+        "interfaces": [ <trimmed for brevity> ]
+      }
+    }
+  ]
+}
